@@ -162,7 +162,8 @@ aside
     position: fixed;
     top: 0; 
     width: 0;
-    height: 100vh;
+    /* height: 100vh; */
+    height: 100%;
     z-index: 2;
     transition: background-color 0.5s !important;
     background-color:rgba(0, 0, 0, 0); 
@@ -173,7 +174,8 @@ aside
     position: fixed; 
     width: 350px; 
     background-color: white; 
-    height: 100vh;
+    /* height: 100vh; */
+    height: 100%; 
     top: 0; 
     left: -350px; 
     transition: 0.5s left; 
