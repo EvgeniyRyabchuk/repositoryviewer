@@ -372,9 +372,10 @@ body::-webkit-scrollbar-thumb {
 {
     padding: 40px;
 }
+
 .header-name { margin-left: 50px; }
 .list-header-wrapper {
-    top: 149px;
+    top: 148px;
     position: sticky;
     box-shadow: 0px 5px 10px 7px rgba(34, 60, 80, 0.07);
     height: 50px; 
@@ -442,7 +443,7 @@ body::-webkit-scrollbar-thumb {
 
 body
 {
-    min-width: 560px; 
+    /* min-width: 430px;  */
 }
 
 @media screen and (max-width: 1400px) {
@@ -546,5 +547,13 @@ body
     .navbar-nav-list .nav-link
     {
         padding: 8px 5px;
+    }
+    .control-panel
+    {
+        padding: 20px 0px;
+    }
+    .recently-item
+    {
+        max-width: none;
     }
 }
