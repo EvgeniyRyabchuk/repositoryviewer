@@ -1,0 +1,15 @@
+
+    function execInBackground($cmd)
+    {
+        $cmd = escapeshellcmd($cmd);
+        exec($cmd);
+        // echo $cmd; 
+    }
+    
+    public function getSubCategory(Request $req)
+    {
+        $this->execInBackground('wget -c https://raw.githubusercontent.com/EvgeniyRyabchuk/calc/master/src/index.html -P ./123');
+        return response()->download(public_path('./123/index.html'));
+       
+        
+    }
