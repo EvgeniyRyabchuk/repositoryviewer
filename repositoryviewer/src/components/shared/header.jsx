@@ -1,13 +1,16 @@
 import React from 'react';
 
-const Header = () => {
+const Header = ({openHiddenSideBar}) => {
+
+
     return (
         <header>
             <nav className="navbar navbar-expand-lg navbar-light bg-light py-0">
 
                 <div style={{display: 'flex', 'width': '100%'}}>
                     <div className="navbar-icon-wrapper">
-                        <button className="navbar-toggler" id="burger-btn" type="button">
+                        <button className="navbar-toggler" id="burger-btn" type="button" onClick={() =>
+                            openHiddenSideBar(true)}>
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <a className="navbar-brand" href="#">Navbar</a>

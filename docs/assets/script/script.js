@@ -18,7 +18,7 @@ document.querySelector('#burger-btn').addEventListener("click", () =>
 document.querySelector('.side_wrapper').addEventListener("click", (e) => 
 {
     isHiddenAsideOpen = !isHiddenAsideOpen; 
-    aside.classList.remove("side_wrapper--show"); 
+    aside.classList.remove("side_wrapper--show");   
     hideWrapper.classList.remove("hidden-aside--show"); 
     document.body.style.overflowY = 'auto'; 
 })
