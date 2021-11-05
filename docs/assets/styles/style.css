@@ -372,7 +372,7 @@ body::-webkit-scrollbar-thumb {
 .wrapper 
 {
     margin-top: 90px; 
-     max-height: -moz-calc(100% - 60px);
+     max-height: -moz-calc(100% - 60px); 
      max-height: -webkit-calc(100% - 60px); 
      max-height: calc(100% - 60px)
 } */

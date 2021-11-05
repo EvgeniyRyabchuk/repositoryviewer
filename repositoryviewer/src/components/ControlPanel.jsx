@@ -1,6 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faCaretDown, faFolder} from "@fortawesome/free-solid-svg-icons";
 
 const ControlPanel = () => {
+    const [isPathHistoryOpen, setIsPathHistoryOpen] = useState(false);
+
+    const pathHistoryOpen = () => {
+        setIsPathHistoryOpen(!isPathHistoryOpen);
+    }
+
     return (
         <div className="control-wrapper">
             <div className="control-panel">
@@ -13,30 +21,25 @@ const ControlPanel = () => {
 
                 </div>
                 <div className="history-wrapper">
-                    <button className="path-history">
-                        <i className="fas fa-caret-down"></i>
+                    <button className="path-history" onClick={pathHistoryOpen}>
+                        <FontAwesomeIcon icon={faCaretDown} />
                     </button>
-                    <ul className="path-list">
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
-                        <li><i className="fas fa-folder"></i><span>some folder text</span></li>
+                    <ul className={isPathHistoryOpen ? 'path-list open' : 'path-list'}>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
+                        <li><FontAwesomeIcon icon={faFolder}/><span>some folder text</span></li>
                     </ul>
                 </div>
             </div>

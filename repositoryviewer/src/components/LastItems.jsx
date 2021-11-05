@@ -1,11 +1,14 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faFile, faFileArchive, faFileImage} from '@fortawesome/free-solid-svg-icons'
+import {faFileAlt, faFileAudio, faFileVideo} from '@fortawesome/free-regular-svg-icons'
 
 const LastItems = () => {
     return (
         <div className="recently-items-wrapper">
             <div className="recently-item">
                 <div className="recently-item-inner">
-                    <i className="fas fa-file-image"></i>
+                    <FontAwesomeIcon icon={faFileImage} />
                     <div className="recently-file__header">
                         <h5>Some file 1</h5>
                     </div>
@@ -13,7 +16,7 @@ const LastItems = () => {
             </div>
             <div className="recently-item">
                 <div className="recently-item-inner">
-                    <i className="far fa-file-alt"></i>
+                    <FontAwesomeIcon icon={faFileAlt} />
                     <div className="recently-file__header">
                         <h5>Some file 1</h5>
                     </div>
@@ -22,7 +25,7 @@ const LastItems = () => {
 
             <div className="recently-item">
                 <div className="recently-item-inner" className="recently-item-inner">
-                    <i className="fas fa-file"></i>
+                    <FontAwesomeIcon icon={faFile} />
                     <div className="recently-file__header">
                         <h5>Some file 1</h5>
                     </div>
@@ -31,7 +34,7 @@ const LastItems = () => {
             </div>
             <div className="recently-item">
                 <div className="recently-item-inner">
-                    <i className="far fa-file-video"></i>
+                    <FontAwesomeIcon icon={faFileVideo} />
                     <div className="recently-file__header">
                         <h5>Some file 1</h5>
                     </div>
@@ -39,7 +42,7 @@ const LastItems = () => {
             </div>
             <div className="recently-item">
                 <div className="recently-item-inner">
-                    <i className="far fa-file-audio"></i>
+                    <FontAwesomeIcon icon={faFileAudio} />
                     <div className="recently-file__header">
                         <h5>Some file 1</h5>
                     </div>
@@ -47,7 +50,7 @@ const LastItems = () => {
             </div>
             <div className="recently-item">
                 <div className="recently-item-inner">
-                    <i className="fas fa-file-archive"></i>
+                    <FontAwesomeIcon icon={faFileArchive} />
                     <div className="recently-file__header">
                         <h5>Some file 1</h5>
                     </div>

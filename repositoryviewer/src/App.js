@@ -13,6 +13,7 @@ function App() {
     const [isHiddenSideBarOpen, setIsHiddenSideBarOpen] = useState(false);
     const openSideBar = (value) => {
         setIsHiddenSideBarOpen(value);
+        document.body.style.overflowY = value === true ? 'hidden' : 'auto';
     }
 
     return (

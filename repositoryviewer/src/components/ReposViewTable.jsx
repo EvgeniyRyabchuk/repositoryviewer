@@ -1,4 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUndoAlt } from "@fortawesome/free-solid-svg-icons/faUndoAlt";
+import DefBtn from "./UI/button/DefBtn/DefBtn";
 
 const ReposViewTable = () => {
     return (
@@ -7,7 +10,10 @@ const ReposViewTable = () => {
                 <div className="list-header-wrapper">
                     <div className="list-header-container">
                         <div className="d-flex align-items-center">
-                            <i id="folder-back" className="fas fa-undo-alt"></i>
+                            <DefBtn id="folder-back">
+                                <FontAwesomeIcon id="folder-back" icon={faUndoAlt} />
+                            </DefBtn>
+
                             <span className="header-name">Name</span>
                         </div>
                         <div className="file-metadata">

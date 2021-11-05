@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useLocation} from "react-router-dom";
 import LastItems from "../components/LastItems";
 import ControlPanel from "../components/ControlPanel";
@@ -6,6 +6,8 @@ import ReposViewTable from "../components/ReposViewTable";
 
 const Home = () => {
     let location = useLocation();
+
+
     return (
         <div className={
             location.pathname === '/home' ?
@@ -14,7 +16,7 @@ const Home = () => {
             <article className="content">
                 <LastItems />
                 <div className="content-inner">
-                    <ControlPanel/>
+                    <ControlPanel />
                     <ReposViewTable />
                 </div>
             </article>

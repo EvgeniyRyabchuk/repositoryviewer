@@ -104,6 +104,7 @@
 {
     background-color: gray;
     cursor: pointer;
+    color: white;
 }
 
 
@@ -373,7 +374,7 @@ body::-webkit-scrollbar-thumb {
 } */
 
 
-#folder-back { cursor: pointer; }
+#folder-back { cursor: pointer; font-size: 23px; }
 .file-list-wrapper
 {
     padding: 40px;
