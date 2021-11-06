@@ -7,9 +7,11 @@ import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import HiddenSideBar from "./components/shared/HiddenSideBar";
 import {useEffect, useRef, useState} from "react";
+import {UserContext} from "./context";
 
 function App() {
 
+    const [user, setUser] = useState({isAuth: false});
     const [isHiddenSideBarOpen, setIsHiddenSideBarOpen] = useState(false);
     const openSideBar = (value) => {
         setIsHiddenSideBarOpen(value);
@@ -18,23 +20,25 @@ function App() {
 
     return (
     <div className="App">
-        <BrowserRouter>
-            <Header openHiddenSideBar={openSideBar}/>
-            <HiddenSideBar isOpen={isHiddenSideBarOpen} openHiddenSideBar={openSideBar}/>
+        <UserContext.Provider value={{user, setUser}}>
+            <BrowserRouter>
+                <Header openHiddenSideBar={openSideBar}/>
+                <HiddenSideBar isOpen={isHiddenSideBarOpen} openHiddenSideBar={openSideBar}/>
 
-            <div className="main-wrapper container-fluid d-flex pr-0">
-                <main>
-                    {/*<button onClick={() => openSideBar(true)}>123</button>*/}
-                    <div className="d-flex w-100">
-                       <Sidebar />
-                        <div className="tab-content" id="v-pills-tabContent">
-                            <AppRouter />
+                <div className="main-wrapper container-fluid d-flex pr-0">
+                    <main>
+                        {/*<button onClick={() => openSideBar(true)}>123</button>*/}
+                        <div className="d-flex w-100">
+                           <Sidebar />
+                            <div className="tab-content" id="v-pills-tabContent">
+                                <AppRouter />
+                            </div>
                         </div>
-                    </div>
-                </main>
-            </div>
-        </BrowserRouter>
-    </div> 
+                    </main>
+                </div>
+            </BrowserRouter>
+        </UserContext.Provider>
+    </div>
   );
 }
 

@@ -160,7 +160,7 @@ let curRepos = { };
 // дополнение информации о файле/папке
 function pathDataModify(obj)
 {
-    let pathArray = obj.path.split("/");
+    let pathArray = obj.path.split("/"); 
     obj.name = pathArray.pop();  
     obj.owner = pathArray.join("/"); 
 }
@@ -169,26 +169,29 @@ function openFolder(repos, path)
 {
     return repos.tree.filter((e) => { 
         return e.owner === path ? true : false 
-     })
+     }) 
 }
+
 // получение всех данных репозитория  
 async function getFiles(reposName) { 
     const i = await fetch(`https://api.github.com/repos/EvgeniyRyabchuk/${reposName}/git/trees/master?recursive=1`)
-    const data = await i.json(); 
+    const data = await i.json();
+    console.log(data)
     for(let i of data.tree) 
         pathDataModify(i); 
     
-    curRepos = data;
+    curRepos = data; 
     curRepos.name = reposName; 
+    console.log(curRepos);
 } 
 // пполучение всех репозиториев 
 async function getRepos(path) { 
     const i = await fetch(path) 
     const data = await i.json(); 
     repos = data; 
+    console.log(repos);
 }
 
 getRepos("https://api.github.com/users/EvgeniyRyabchuk/repos");
-getFiles("calc");  
+getFiles("HostServicePage");  
 
- 
