@@ -12,4 +12,10 @@ export default class GitHubService {
         const data = await responce.json();
         return data;
     }
+
+    static getBlob(username, reposName, branch, filename) {
+        const url = `https://raw.githubusercontent.com/${username}/${reposName}/${branch}/${filename}`;
+        // window.location.href = `https://raw.githubusercontent.com/${username}/${reposName}/${branch}/${filename}`;
+        window.open(url, filename); 
+    }
 }

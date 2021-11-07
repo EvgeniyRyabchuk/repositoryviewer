@@ -13,6 +13,8 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh}) => {
 
     const { user, setUser } = useContext(UserContext);
     const [ itemsList, setItemsList ] = useState([]);
+
+    const [reposName, setReposName] = useState('');
     const reposData = useRef();
 
     const openFolder = (repos, path) => {
@@ -67,8 +69,9 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh}) => {
     },[user]);
 
     const openDirOrFile = (key, type) => {
-        console.log(type)
+
         if(type === 'repos') {
+            setReposName(key);
             fetchReposContent(key); // key = reposName
         }
         else {
@@ -76,6 +79,10 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh}) => {
             {
                 const items = openFolder(reposData.current, key);
                 setItemsList(items);
+            }
+            else if(type === 'blob') {
+                console.log(key);
+               GitHubService.getBlob(user.username, reposName, 'master', key);
             }
         }
     }
@@ -85,6 +92,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh}) => {
         console.log(path);
         if(path.length === 1 && path[0] === '') {
             fetchRepos(user.username);
+            setReposName('');
             return;
         }
 
@@ -96,6 +104,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh}) => {
 
     return (
         <div className="file-list-wrapper">
+            <h1 style={{textAlign: 'center', marginBottom: '50px'}}>{reposName}</h1>
             <div className="file-list-container">
                 <div className="list-header-wrapper">
                     <div className="list-header-container">
