@@ -1,0 +1,9 @@
+.branch__list {
+    width: 150px;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: gray;
+    color: white;
+}

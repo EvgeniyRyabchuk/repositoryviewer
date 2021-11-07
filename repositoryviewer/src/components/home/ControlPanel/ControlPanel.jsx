@@ -2,22 +2,33 @@ import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCaretDown, faFolder} from "@fortawesome/free-solid-svg-icons";
 import PathNavigator from "./PathNavigator/PathNavigator";
+import cl from './ControlPanel.module.css';
 
-const ControlPanel = ({showModal, curPath, changePath}) => {
+const ControlPanel = ({showModal, curPath, changePath, branches, switchBranch, curBranch}) => {
 
 
     return (
         <div className="control-wrapper">
+
             <div className="control-panel">
 
                 <button type="button" onClick={showModal} className="btn btn-primary control-btn">View User Repos</button>
                 <button className="btn btn-primary control-btn">Log out</button>
                 <button className="btn btn-danger control-btn">Remove</button>
+
                 <div className="cur-path">
                     <input type="text" disabled
                            value={'/'+curPath}/>
-
                 </div>
+
+                {/*value={branches != 0 ? branches[0] : undefined}*/}
+                <select className={'form-select ' + cl.branch__list} aria-label="Default select example"
+                        onChange={(event) => switchBranch(event.target.value)}>
+                    <option disabled>Select branch</option>
+                    {branches.map((e, index) =>
+                        <option  key={e.commit.sha} className={e.isSelect ? cl.selected : ''} value={e.name}>{e.name}</option>
+                    )}
+                </select>
                 <PathNavigator curPath={curPath} changePath={changePath} />
             </div>
         </div>

@@ -1,21 +1,28 @@
+import {FetchService} from "./FetchService";
 
-export default class GitHubService {
+export default class GitHubService extends FetchService {
 
     static async getRepos(username) {
-        const responce = await fetch(`https://api.github.com/users/${username}/repos`)
-        const data = await responce.json();
-        return data;
+        const url =`https://api.github.com/users/${username}/repos`;
+        const res = FetchService.fetchJsonData(url);
+        return res;
     }
 
-    static async getReposContent(reposName) {
-        const responce = await fetch(`https://api.github.com/repos/EvgeniyRyabchuk/${reposName}/git/trees/master?recursive=1`)
-        const data = await responce.json();
-        return data;
+    static async getReposContent(reposName, branch = 'master') {
+        const url = `https://api.github.com/repos/EvgeniyRyabchuk/${reposName}/git/trees/${branch}?recursive=1`;
+        const res = FetchService.fetchJsonData(url);
+        return res;
     }
 
     static getBlob(username, reposName, branch, filename) {
         const url = `https://raw.githubusercontent.com/${username}/${reposName}/${branch}/${filename}`;
         // window.location.href = `https://raw.githubusercontent.com/${username}/${reposName}/${branch}/${filename}`;
-        window.open(url, filename); 
+        window.open(url, filename);
+    }
+
+    static async getBranches(username, reposName) {
+        const url = `https://api.github.com/repos/${username}/${reposName}/branches`;
+        const res = await FetchService.fetchJsonData(url);
+        return res;
     }
 }

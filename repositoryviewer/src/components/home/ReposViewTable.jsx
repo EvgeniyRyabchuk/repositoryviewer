@@ -9,7 +9,7 @@ import ItemList from "./ItemList";
 import Loader from "../UI/loader/FetchLoader/Loader";
 
 
-const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh}) => {
+const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBranches, curBranch}) => {
 
     const { user, setUser } = useContext(UserContext);
     const [ itemsList, setItemsList ] = useState([]);
@@ -44,6 +44,21 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh}) => {
         }
     }
 
+    const branchesListDataModify = (data) => {
+        for(let i of data) {
+            data.indexOf(i) === 0 ? i.isSelect = true : i.isSelect = false;
+        }
+    }
+
+    useEffect(() => {
+        console.log('first start here');
+        if(curBranch) {
+            console.log(curBranch.name); 
+            fetchReposContent(reposName, curBranch.name);
+        }
+    }, [curBranch]);
+
+
 
 
     // получение репозиторий пользователя
@@ -52,15 +67,20 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh}) => {
             setItemsList(data);
     });
 
-    const [fetchReposContent, isReposContentLoading, reposContentError] = useFetching(async (reposName) => {
-        const data = await GitHubService.getReposContent(reposName);
-        pathDataModify(data);
-        reposData.current = data;
-        const items = openFolder(data, '');
+    // получение файлов корня репозитория (открытие репозитория)
+    const [fetchReposContent, isReposContentLoading, reposContentError] = useFetching(async (reposName, branchName) => {
+
+        let branches = await GitHubService.getBranches(user.username, reposName);
+        const selectedBranch = branchName ? branchName : branches[0].name;
+        const filesData = await GitHubService.getReposContent(reposName, selectedBranch);
+        pathDataModify(filesData);
+        branchesListDataModify(branches);
+        reposData.current = filesData;
+        const items = openFolder(filesData, '');
         setItemsList(items);
+        console.log(branches);
+        changeBranches(branches);
     });
-
-
 
     useEffect(() => {
         if(user.isAuth) {
@@ -93,6 +113,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh}) => {
         if(path.length === 1 && path[0] === '') {
             fetchRepos(user.username);
             setReposName('');
+            changeBranches([]);
             return;
         }
 

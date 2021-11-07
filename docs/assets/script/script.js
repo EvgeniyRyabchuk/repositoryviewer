@@ -196,3 +196,5 @@ getRepos("https://api.github.com/users/EvgeniyRyabchuk/repos");
 // getFiles("HostServicePage");  
 getFiles("calc");  
 
+
+console.log([1, 2, 3, 4, 5].filter(e => e === 1)); 

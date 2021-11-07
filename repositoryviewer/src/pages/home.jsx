@@ -12,6 +12,8 @@ const Home = () => {
 
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     const [curPath, setCurPath] = useState('');
+    const [curBranch, setCurBranch] = useState();
+    const [branchList, setBranchList] = useState([]);
     const [isRefresh, setIsRefresh] = useState(false);
 
     const showModal = () => {
@@ -34,6 +36,39 @@ const Home = () => {
         if(isRefresh) setIsRefresh(true);
     }
 
+    const switchBranch = (branchName) => {
+        let branch = null;
+        // удаление метки со старой ветки и его получение
+        let newBranchList = branchList.map(e => {
+            if(e.isSelect) {
+                e.isSelect = false;
+            }
+            return e;
+        });
+
+        // установил метку на новой ветке
+        newBranchList = newBranchList.map(e => {
+            if(e.name === branchName)
+            {
+                e.isSelect = true;
+                branch = e;
+            }
+            return e;
+        })
+
+
+        console.log('new branches list');
+        console.log(newBranchList);
+        console.log(branch);
+        setBranchList(newBranchList);
+        setCurBranch(branch);
+    }
+
+    const changeCurBranch = (b) => {
+        console.log(b)
+        setCurBranch(b);
+    }
+
     return (
         <div className={
             location.pathname === '/home' ?
@@ -42,9 +77,11 @@ const Home = () => {
             <article className="content">
                 <LastItems />
                 <div className="content-inner">
-                    <ControlPanel showModal={showModal} curPath={curPath} changePath={changePath}/>
-                    <ReposViewTable curPath={curPath} changePath={changePath} isRefresh={isRefresh} setIsRefresh={setIsRefresh} />
-                    <ViewUserReposModal isOpen={isModalOpen} confirm={confirmModal} hidden={hideModal} />
+                    <ControlPanel showModal={showModal} curPath={curPath} changePath={changePath}
+                                  branches={branchList} switchBranch={switchBranch} />
+                    <ReposViewTable curPath={curPath} changePath={changePath} isRefresh={isRefresh}
+                                    setIsRefresh={setIsRefresh} changeBranches={setBranchList} curBranch={curBranch} />
+                    <ViewUserReposModal isOpen={isModalOpen} confirm={confirmModal} hidden={hideModal}/>
 
                 </div>
             </article>
