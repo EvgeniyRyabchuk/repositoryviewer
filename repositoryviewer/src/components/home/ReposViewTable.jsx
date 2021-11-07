@@ -9,7 +9,7 @@ import ItemList from "./ItemList";
 import Loader from "../UI/loader/FetchLoader/Loader";
 
 
-const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBranches, curBranch}) => {
+const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBranches, curBranch, changeCurBranch}) => {
 
     const { user, setUser } = useContext(UserContext);
     const [ itemsList, setItemsList ] = useState([]);
@@ -53,7 +53,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
     useEffect(() => {
         console.log('first start here');
         if(curBranch) {
-            console.log(curBranch.name); 
+            console.log(curBranch.name);
             fetchReposContent(reposName, curBranch.name);
         }
     }, [curBranch]);
@@ -69,7 +69,6 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
 
     // получение файлов корня репозитория (открытие репозитория)
     const [fetchReposContent, isReposContentLoading, reposContentError] = useFetching(async (reposName, branchName) => {
-
         let branches = await GitHubService.getBranches(user.username, reposName);
         const selectedBranch = branchName ? branchName : branches[0].name;
         const filesData = await GitHubService.getReposContent(reposName, selectedBranch);
@@ -79,7 +78,9 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
         const items = openFolder(filesData, '');
         setItemsList(items);
         console.log(branches);
+        // changeCurBranch(selectedBranch);
         changeBranches(branches);
+        return selectedBranch;
     });
 
     useEffect(() => {
@@ -92,7 +93,8 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
 
         if(type === 'repos') {
             setReposName(key);
-            fetchReposContent(key); // key = reposName
+            const branch = fetchReposContent(key); // key = reposName
+            changeCurBranch(branch);
         }
         else {
             if(type === 'tree')
@@ -102,7 +104,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
             }
             else if(type === 'blob') {
                 console.log(key);
-               GitHubService.getBlob(user.username, reposName, 'master', key);
+               GitHubService.getBlob(user.username, reposName, curBranch.name, key);
             }
         }
     }

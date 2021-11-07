@@ -60,7 +60,7 @@ const Home = () => {
         console.log('new branches list');
         console.log(newBranchList);
         console.log(branch);
-        setBranchList(newBranchList);
+        // setBranchList(newBranchList);
         setCurBranch(branch);
     }
 
@@ -78,9 +78,9 @@ const Home = () => {
                 <LastItems />
                 <div className="content-inner">
                     <ControlPanel showModal={showModal} curPath={curPath} changePath={changePath}
-                                  branches={branchList} switchBranch={switchBranch} />
+                                  branches={branchList} switchBranch={switchBranch} curBranch={curBranch} />
                     <ReposViewTable curPath={curPath} changePath={changePath} isRefresh={isRefresh}
-                                    setIsRefresh={setIsRefresh} changeBranches={setBranchList} curBranch={curBranch} />
+                                    setIsRefresh={setIsRefresh} changeBranches={setBranchList} curBranch={curBranch} changeCurBranch={setCurBranch} />
                     <ViewUserReposModal isOpen={isModalOpen} confirm={confirmModal} hidden={hideModal}/>
 
                 </div>

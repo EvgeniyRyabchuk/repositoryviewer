@@ -9,7 +9,7 @@ const ControlPanel = ({showModal, curPath, changePath, branches, switchBranch, c
 
     return (
         <div className="control-wrapper">
-
+            {branches.map(e => e.name === curBranch.name ? e.name : '')}
             <div className="control-panel">
 
                 <button type="button" onClick={showModal} className="btn btn-primary control-btn">View User Repos</button>
@@ -26,7 +26,7 @@ const ControlPanel = ({showModal, curPath, changePath, branches, switchBranch, c
                         onChange={(event) => switchBranch(event.target.value)}>
                     <option disabled>Select branch</option>
                     {branches.map((e, index) =>
-                        <option  key={e.commit.sha} className={e.isSelect ? cl.selected : ''} value={e.name}>{e.name}</option>
+                        <option  key={e.commit.sha} className={e.name === curBranch.name ? cl.selected : 'simple'} value={e.name}>{e.name}</option>
                     )}
                 </select>
                 <PathNavigator curPath={curPath} changePath={changePath} />
