@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/GitHubRepositoryViewer/static/css/main.61097573.chunk.css",
+    "main.js": "/GitHubRepositoryViewer/static/js/main.28ebbfc8.chunk.js",
+    "main.js.map": "/GitHubRepositoryViewer/static/js/main.28ebbfc8.chunk.js.map",
+    "runtime-main.js": "/GitHubRepositoryViewer/static/js/runtime-main.92c18093.js",
+    "runtime-main.js.map": "/GitHubRepositoryViewer/static/js/runtime-main.92c18093.js.map",
+    "static/css/2.383c0125.chunk.css": "/GitHubRepositoryViewer/static/css/2.383c0125.chunk.css",
+    "static/js/2.4f117c58.chunk.js": "/GitHubRepositoryViewer/static/js/2.4f117c58.chunk.js",
+    "static/js/2.4f117c58.chunk.js.map": "/GitHubRepositoryViewer/static/js/2.4f117c58.chunk.js.map",
+    "index.html": "/GitHubRepositoryViewer/index.html",
+    "static/css/2.383c0125.chunk.css.map": "/GitHubRepositoryViewer/static/css/2.383c0125.chunk.css.map",
+    "static/css/main.61097573.chunk.css.map": "/GitHubRepositoryViewer/static/css/main.61097573.chunk.css.map",
+    "static/js/2.4f117c58.chunk.js.LICENSE.txt": "/GitHubRepositoryViewer/static/js/2.4f117c58.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/GitHubRepositoryViewer/static/media/Roboto-Regular.a8d6ac03.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.92c18093.js",
+    "static/css/2.383c0125.chunk.css",
+    "static/js/2.4f117c58.chunk.js",
+    "static/css/main.61097573.chunk.css",
+    "static/js/main.28ebbfc8.chunk.js"
+  ]
+}
