@@ -6,10 +6,7 @@ import {UserContext} from "../../context";
 
 const Profiles = () => {
     let location = useLocation();
-    const {user, setUser} = useContext(UserContext);
-
-
-
+    
     return (
         <div className={
             location.pathname === '/profile' ?

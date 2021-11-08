@@ -11,7 +11,7 @@ const ProfileCard = ({props}) => {
         setUser(props);
         history.push('home');
     }
-
+    
     return (
         <div className="profile-card">
             <div className={props.id === user.id ? 'profile-card-inner profile__card--active' : 'profile-card-inner'}>
