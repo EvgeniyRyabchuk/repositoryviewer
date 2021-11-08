@@ -104,6 +104,7 @@
 {
     background-color: gray;
     cursor: pointer;
+    color: white;
 }
 
 
@@ -151,7 +152,13 @@ aside
     left: 0 !important;
 }
 
+.main-wrapper {
+    margin-top: 90px;
+}
 
+.history-wrapper {
+    margin: 0 10px;
+}
 
 .side_wrapper {
     position: fixed;
@@ -274,7 +281,12 @@ main
     padding: 10px;
     overflow-x: hidden;
 }
-
+.recently-item-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .recently-file__header
 {
     margin-top: 15px;
@@ -362,7 +374,7 @@ body::-webkit-scrollbar-thumb {
 } */
 
 
-#folder-back { cursor: pointer; }
+#folder-back { cursor: pointer; font-size: 23px; }
 .file-list-wrapper
 {
     padding: 40px;
@@ -381,12 +393,15 @@ body::-webkit-scrollbar-thumb {
     background-color: rgb(236, 236, 236);;
     /* padding-left: 100px; */
 }
-.list-header-container{
+.list-header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
 
+}
+.list-header-container i {
+    font-size: 23px;
+}
 .file-list-container
 {
     min-height: 600px;
@@ -552,3 +567,83 @@ body
         max-width: none;
     }
 }
+
+
+
+.h-center { text-align: center; margin-bottom: 30px; }
+
+.profile-tab {
+    padding: 30px;
+}
+.profile-list {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.profile-card {
+    /* flex-basis: 25%;
+    flex-grow: 1; */
+    min-width: 300px;
+    width: 25%;
+}
+.profile__card--active {
+    border: 3px solid #0d6efd !important;
+}
+.profile-card-inner {
+    padding: 10px;
+    /* background-color: rgb(196, 196, 196);  */
+    border: 1px solid white;
+    height: 70px;
+    display: flex;
+    font-size: 14px;
+    margin: 10px;
+    box-shadow: 0px 0px 10px 2px rgba(34, 60, 80, 0.2);
+}
+.profile-card  .profile__img__wrapper {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card .view-rep-btn {
+    background-color: transparent;
+    color: #0d6efd;
+    border: 0px;
+    outline: none;
+    padding: 3px;
+
+}
+
+
+
+.profile__img__wrapper img
+{
+    border-radius: 50%;
+
+    /* border-collapse: collapse;
+    overflow: hidden; */
+}
+
+@media screen and (max-width: 1600px) {
+    .profile-card {
+        width: 33.33333%;
+    }
+}
+@media screen and (max-width: 1300px) {
+    .profile-card {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .profile-card {
+        width: 380px;
+        margin: 0 auto;
+    }
+}
+
+
+
+
+
