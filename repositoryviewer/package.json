@@ -2,7 +2,7 @@
   "name": "repositoryviewer",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://evgeniyryabchuk.github.io/repositoryviewer/", 
+  "homepage": "https://evgeniyryabchuk.github.io/repositoryviewer/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -35,7 +35,7 @@
       "react-app/jest"
     ]
   },
-  "browserslist": {
+  "browserslist": { 
     "production": [
       ">0.2%",
       "not dead",

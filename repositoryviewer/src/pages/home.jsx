@@ -81,7 +81,7 @@ const Home = () => {
         setCurBranch(branch);
     }
 
-    const changeCurBranch = (b) => {
+    const changeCurBranch = (b) => { 
         console.log(b)
         setCurBranch(b);
     }
