@@ -1,6 +1,4 @@
 import React from 'react';
-import Loader from "../UI/loader/FetchLoader/Loader";
-import Item from "./Items/Item";
 import FolderItem from "./Items/FolderItem";
 import FileItem from "./Items/FileItem";
 import ReposItem from "./Items/ReposItem";

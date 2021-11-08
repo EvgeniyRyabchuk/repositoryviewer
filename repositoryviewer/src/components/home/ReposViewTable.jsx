@@ -71,7 +71,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
     const [fetchReposContent, isReposContentLoading, reposContentError] = useFetching(async (reposName, branchName) => {
         let branches = await GitHubService.getBranches(user.username, reposName);
         const selectedBranch = branchName ? branchName : branches[0].name;
-        const filesData = await GitHubService.getReposContent(reposName, selectedBranch);
+        const filesData = await GitHubService.getReposContent(user.username, reposName, selectedBranch);
         pathDataModify(filesData);
         branchesListDataModify(branches);
         reposData.current = filesData;
@@ -84,7 +84,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
     });
 
     useEffect(() => {
-        if(user.isAuth) {
+        if(user) {
             fetchRepos(user.username);
         }
     },[user]);

@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCaretDown, faFolder} from "@fortawesome/free-solid-svg-icons";
-import PathLink from "./PathLink/PathLink";
+import PathLink from "../PathLink/PathLink";
 
 const PathNavigator = ({curPath, changePath}) => {
     const [isPathHistoryOpen, setIsPathHistoryOpen] = useState(false);

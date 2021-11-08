@@ -25,7 +25,7 @@ const Sidebar = () => {
                 {/*</button>*/}
                 {/*<button className="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"*/}
                 {/*        data-bs-target="#v-pills-profile" type="button" role="tab"*/}
-                {/*        aria-controls="v-pills-profile" aria-selected="false">Profile*/}
+                {/*        aria-controls="v-pills-profile" aria-selected="false">Profiles*/}
                 {/*</button>*/}
 
             </div>

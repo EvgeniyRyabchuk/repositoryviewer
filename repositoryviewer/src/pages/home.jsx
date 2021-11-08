@@ -5,6 +5,7 @@ import ControlPanel from "../components/home/ControlPanel/ControlPanel";
 import ReposViewTable from "../components/home/ReposViewTable";
 import ViewUserReposModal from "../components/UI/ViewUserReposModal/ViewUserReposModal";
 import {UserContext} from "../context";
+import GitHubService from "../API/GitHubService";
 
 const Home = () => {
     let location = useLocation();
@@ -24,10 +25,26 @@ const Home = () => {
         setIsModalOpen(false);
     };
 
-    const confirmModal = ({username}) => {
+    const confirmModal = async ({username}) => {
         if(username) {
-            setUser({isAuth: true, username: username})
-            hideModal();
+            try {
+                const responce = await GitHubService.getUser(username);
+                console.log(responce);
+                const user = {
+                    username: responce.login,
+                    email: responce.email,
+                    id: responce.id,
+                    avatar_url: responce.avatar_url
+                }
+                setUser(user);
+            }
+            catch (ex) {
+                console.log(ex);
+            }
+            finally {
+
+                hideModal();
+            }
         }
     }
 

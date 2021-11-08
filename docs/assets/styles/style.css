@@ -5,6 +5,10 @@
     src: url(/vendors/fontawesome-free-5.15.4-web/webfonts/fa-regular-400.woff2);
 } */
 
+/* overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap; */
+
 /* own font */
 @font-face {
     font-family: 'Roboto';
@@ -200,15 +204,9 @@ aside
     margin-left: 20px; 
 }
 
-.profile__img__wrapper
-{
-    
-}
 
-.profile__img__wrapper img
-{
-    border-radius: 30px; 
-}
+
+
 
 .navbar-nav
 {
@@ -656,3 +654,94 @@ body
     }
   }
   
+
+
+
+  
+  .h-center { text-align: center; margin-bottom: 30px; } 
+
+
+
+
+  .profile-tab {
+      padding: 30px; 
+  }
+  .profile-list {
+      display: flex;
+      flex-wrap: wrap;
+  }
+  
+  .profile-card {
+        min-width: 300px;
+        width: 25%; 
+   }
+   .profile__card--active { 
+        border: 3px solid #0d6efd !important; 
+   }
+   .profile-card-inner { 
+        padding: 10px;
+        /* background-color: rgb(196, 196, 196);  */
+        border: 1px solid white; 
+        height: 70px; 
+        display: flex;
+        font-size: 14px; 
+        margin: 10px;
+        box-shadow: 0px 0px 10px 2px rgba(34, 60, 80, 0.2);
+}
+   .profile-card  .profile__img__wrapper {
+       margin-left: 10px;
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+    }
+    
+    .profile-card .view-rep-btn {
+        background-color: transparent; 
+        color: #0d6efd; 
+        border: 0px; 
+        outline: none; 
+        padding: 3px;
+       
+    }
+
+  
+
+    .profile__img__wrapper img 
+    {
+        border-radius: 50%;
+     
+        /* border-collapse: collapse;
+        overflow: hidden; */ 
+    }
+
+    @media screen and (max-width: 1600px) {
+        .profile-card {
+            width: 33.33333%;
+        }
+      } 
+      @media screen and (max-width: 1300px) {
+        .profile-card {
+            width: 50%;
+            background-color: rgba(126, 126, 126, 0.411);
+        }
+      } 
+
+      @media screen and (max-width: 700px) {
+        .profile-card {
+            width: 380px;
+            margin: 0 auto; 
+        }
+      } 
+
+   /* @media screen and (max-width: 1400px) {
+   
+    .profile-card {
+        width: 50%
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    .profile-card {
+        width: 100%
+    }
+  } */

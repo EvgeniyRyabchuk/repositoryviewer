@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faCaretDown, faFolder} from "@fortawesome/free-solid-svg-icons";
-import PathNavigator from "./PathNavigator/PathNavigator";
+import PathNavigator from "../PathNavigator/PathNavigator";
 import cl from './ControlPanel.module.css';
 
 const ControlPanel = ({showModal, curPath, changePath, branches, switchBranch, curBranch}) => {
@@ -9,7 +9,7 @@ const ControlPanel = ({showModal, curPath, changePath, branches, switchBranch, c
 
     return (
         <div className="control-wrapper">
-            {branches.map(e => e.name === curBranch.name ? e.name : '')}
+            {/*{branches.map(e => e.name === curBranch.name ? e.name : '')}*/}
             <div className="control-panel">
 
                 <button type="button" onClick={showModal} className="btn btn-primary control-btn">View User Repos</button>
