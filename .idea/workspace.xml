@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a3fa3db4-fc00-479a-927b-59974cdc0691" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/backlog.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/API/FetchService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/API/GitHubService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/AppRouter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/UI/ViewUserReposModal/ViewUserReposModal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/UI/button/DefBtn/DefBtn.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/UI/button/DefBtn/DefBtn.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/UI/loader/FetchLoader/Loader.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/UI/loader/FetchLoader/Loader.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/ControlPanel/ControlPanel.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/ControlPanel/ControlPanel.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/ItemList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/Items/FileItem.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/Items/FolderItem.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/Items/ReposItem.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/LastItems.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/PathLink/PathLink.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/PathLink/PathLink.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/PathNavigator/PathNavigator.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/PathNavigator/PathNavigator.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/home/ReposViewTable.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/profiles/ProfileCard/ProfileCard.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/profiles/ProfileCard/ProfileCard.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/profiles/ProfileList/ProfileList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/profiles/ProfileList/ProfileList.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/shared/HiddenSideBar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/shared/header.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/components/shared/sidebar.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/context/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/hooks/useFetching.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/pages/error_404.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/pages/home.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/pages/profiles/profiles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/pages/profiles/profiles.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositoryviewer/src/router/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/script/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/script/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/styles/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/issue.txt" beforeDir="false" afterPath="$PROJECT_DIR$/issue.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositoryviewer/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/repositoryviewer/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositoryviewer/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/repositoryviewer/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositoryviewer/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/repositoryviewer/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositoryviewer/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/repositoryviewer/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositoryviewer/src/styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/repositoryviewer/src/styles/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Новый текстовый документ.txt" beforeDir="false" afterPath="$PROJECT_DIR$/repositoryviewer/src/components/UI/ViewUserReposModal/ViewUserReposModal.module.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="20dgbR4DIC6iW9CY4yXkQqXhAgI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3fa3db4-fc00-479a-927b-59974cdc0691" name="Changes" comment="" />
+      <created>1636379951975</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1636379951975</updated>
+      <workItem from="1636379953971" duration="145000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
