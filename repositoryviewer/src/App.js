@@ -22,7 +22,7 @@ function App() {
     useEffect(() => {
         const recoveredList = JSON.parse(localStorage.getItem('userList'));
         if(recoveredList) {
-            setUserList(); 
+            setUserList(recoveredList); 
             if(recoveredList.length > 0)
                 setUser(recoveredList[0]); 
         }
