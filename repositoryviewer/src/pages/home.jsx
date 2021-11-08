@@ -30,7 +30,7 @@ const Home = () => {
             try {
                 const responce = await GitHubService.getUser(username);
                 console.log(responce);
-                const user = {
+                const user = { 
                     username: responce.login,
                     email: responce.email,
                     id: responce.id,
