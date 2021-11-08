@@ -10,9 +10,9 @@ import GitHubService from "../API/GitHubService";
 const Home = () => {
     let location = useLocation();
     const {user, setUser} = useContext(UserContext);
-
+    
     const [isModalOpen, setIsModalOpen] = React.useState(false);
-    const [curPath, setCurPath] = useState('');
+    const [curPath, setCurPath] = useState(''); 
     const [curBranch, setCurBranch] = useState();
     const [branchList, setBranchList] = useState([]);
     const [isRefresh, setIsRefresh] = useState(false);
@@ -30,7 +30,7 @@ const Home = () => {
             try {
                 const responce = await GitHubService.getUser(username);
                 console.log(responce);
-                const user = {
+                const user = { 
                     username: responce.login,
                     email: responce.email,
                     id: responce.id,

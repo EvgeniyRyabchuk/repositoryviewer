@@ -3,7 +3,7 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import { publicRoutes } from '../router/route';
 
 const AppRouter = () => {
-
+    
     return (
         <Switch>
             {publicRoutes.map(e =>
@@ -14,10 +14,10 @@ const AppRouter = () => {
                     exact={e.exact}>
                 </Route>
             )}
-            <Redirect exact from="/" to="/home" />
-            <Redirect exact to="/pagenotfound" />
+            <Redirect exact from="/" to="/home"/>
+            <Redirect exact to="/pagenotfound"/> 
         </Switch>
     );
 };
 
-export default AppRouter;
+export default AppRouter; 

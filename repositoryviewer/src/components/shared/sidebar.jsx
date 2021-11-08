@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Link, useHistory, useLocation} from "react-router-dom";
 
 const Sidebar = () => {
@@ -9,6 +9,7 @@ const Sidebar = () => {
         'profile',
     ]
 
+    console.log(location.pathname); 
     return (
         <aside className="disk-manage">
             <div className="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
