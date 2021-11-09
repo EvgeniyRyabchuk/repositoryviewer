@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/repositoryviewer/static/css/main.ae52b6e2.chunk.css",
+    "main.css": "/repositoryviewer/static/css/main.4cdf825c.chunk.css",
     "main.js": "/repositoryviewer/static/js/main.d5c591a5.chunk.js",
     "main.js.map": "/repositoryviewer/static/js/main.d5c591a5.chunk.js.map",
     "runtime-main.js": "/repositoryviewer/static/js/runtime-main.82899110.js",
@@ -10,7 +10,7 @@
     "static/js/2.59fe5e2b.chunk.js.map": "/repositoryviewer/static/js/2.59fe5e2b.chunk.js.map",
     "index.html": "/repositoryviewer/index.html",
     "static/css/2.383c0125.chunk.css.map": "/repositoryviewer/static/css/2.383c0125.chunk.css.map",
-    "static/css/main.ae52b6e2.chunk.css.map": "/repositoryviewer/static/css/main.ae52b6e2.chunk.css.map",
+    "static/css/main.4cdf825c.chunk.css.map": "/repositoryviewer/static/css/main.4cdf825c.chunk.css.map",
     "static/js/2.59fe5e2b.chunk.js.LICENSE.txt": "/repositoryviewer/static/js/2.59fe5e2b.chunk.js.LICENSE.txt",
     "static/media/App.css": "/repositoryviewer/static/media/Roboto-Regular.a8d6ac03.ttf"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.82899110.js",
     "static/css/2.383c0125.chunk.css",
     "static/js/2.59fe5e2b.chunk.js",
-    "static/css/main.ae52b6e2.chunk.css",
+    "static/css/main.4cdf825c.chunk.css",
     "static/js/main.d5c591a5.chunk.js"
   ]
 }
