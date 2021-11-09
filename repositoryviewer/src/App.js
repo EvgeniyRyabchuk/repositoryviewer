@@ -70,7 +70,6 @@ function App() {
                         </main>
                     </div>
                     <Footer />
-
                 </Router>
             </UserContext.Provider>
         </UserListContext.Provider>

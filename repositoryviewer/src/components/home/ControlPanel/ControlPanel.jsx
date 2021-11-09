@@ -4,7 +4,6 @@ import cl from './ControlPanel.module.css';
 
 const ControlPanel = ({showModal, curPath, changePath, branches, switchBranch, curBranch}) => {
 
-    console.log(branches);
 
     return (
         <div className="control-wrapper">

@@ -13,7 +13,7 @@ const ItemList = ({data, select}) => {
             return e;
         })
         return data;
-    }, data);
+    }, [data]);
 
     if(!data.length)
     {

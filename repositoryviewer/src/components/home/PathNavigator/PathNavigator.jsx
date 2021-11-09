@@ -13,8 +13,9 @@ const PathNavigator = ({curPath, changePath}) => {
     const folderList = useMemo(() => {
         const arr = curPath.split('/');
         if(arr[0] === '') arr[0] = '/';
+        console.log('sdfgh', arr);
         return arr;
-    }, [curPath])
+    }, [curPath]);
 
     const folderSelect = (index) => {
         const arr = curPath.split('/');
@@ -24,6 +25,8 @@ const PathNavigator = ({curPath, changePath}) => {
         if(pathBack === '') pathBack = '';
         changePath(pathBack, true);
     }
+
+
 
     return (
         <div className="history-wrapper">

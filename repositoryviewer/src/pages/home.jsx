@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {useLocation} from "react-router-dom";
-import LastItems from "../components/home/LastItems";
+import LastItems from "../components/home/LastItems/LastItems";
 import ControlPanel from "../components/home/ControlPanel/ControlPanel";
 import ReposViewTable from "../components/home/ReposViewTable";
 import ViewUserReposModal from "../components/UI/ViewUserReposModal/ViewUserReposModal";
@@ -16,6 +16,7 @@ const Home = () => {
     const [curBranch, setCurBranch] = useState();
     const [branchList, setBranchList] = useState([]);
     const [isRefresh, setIsRefresh] = useState(false);
+    const [lastItems, setLastItems] = useState([]);
 
     const showModal = () => {
         setIsModalOpen(true);
@@ -55,29 +56,10 @@ const Home = () => {
 
     const switchBranch = (branchName) => {
         let branch = null;
-        // удаление метки со старой ветки и его получение
-        let newBranchList = branchList.map(e => {
-            if(e.isSelect) {
-                e.isSelect = false;
-            }
-            return e;
-        });
-
-        // установил метку на новой ветке
-        newBranchList = newBranchList.map(e => {
-            if(e.name === branchName)
-            {
-                e.isSelect = true;
-                branch = e;
-            }
-            return e;
-        })
-
-
-        // console.log('new branches list');
-        // console.log(newBranchList);
-        // console.log(branch);
-        // setBranchList(newBranchList);
+        for (let i of branchList) {
+            if(i.name === branchName) { branch = i; }
+        }
+        console.log(branch);
         setCurBranch(branch);
     }
 
@@ -85,23 +67,41 @@ const Home = () => {
         console.log(b);
         setCurBranch(b);
     }
+    const addLastItem = (item) => {
+        if(lastItems.includes(item)) return;
+        if(lastItems.length > 5) {
+            lastItems.splice(lastItems.length - 1, 1);
+            setLastItems([item, ...lastItems]);
+        }
+        else {
+            setLastItems([...lastItems, item]);
+        }
 
-    const cbl = (e) => {
-        setBranchList(e);
     }
-
     return (
         <div className={
             location.pathname === '/home' ?
                 "tab-pane fade show active" :"tab-pane fade" } id="v-pills-home" role="tabpanel"
              aria-labelledby="v-pills-home-tab">
             <article className="content">
-                <LastItems />
+                <LastItems lastItems={lastItems} />
                 <div className="content-inner">
-                    <ControlPanel showModal={showModal} curPath={curPath} changePath={changePath}
-                                  branches={branchList} switchBranch={switchBranch} curBranch={curBranch} />
-                    <ReposViewTable curPath={curPath} changePath={changePath} isRefresh={isRefresh}
-                                    setIsRefresh={setIsRefresh} changeBranches={cbl} branches={branchList} curBranch={curBranch} changeCurBranch={setCurBranch} />
+                    <ControlPanel showModal={showModal}
+                                  curPath={curPath}
+                                  changePath={changePath}
+                                  branches={branchList}
+                                  switchBranch={switchBranch}
+                                  curBranch={curBranch} />
+                    <ReposViewTable curPath={curPath}
+                                    changePath={changePath}
+                                    isRefresh={isRefresh}
+                                    setIsRefresh={setIsRefresh}
+                                    changeBranches={setBranchList}
+                                    branches={branchList}
+                                    curBranch={curBranch}
+                                    changeCurBranch={setCurBranch}
+                                    addLastItem={addLastItem}
+                    />
                     <ViewUserReposModal isOpen={isModalOpen} confirm={confirmModal} hidden={hideModal}/>
 
                 </div>

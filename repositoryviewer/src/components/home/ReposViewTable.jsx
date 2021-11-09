@@ -9,7 +9,7 @@ import ItemList from "./ItemList";
 import Loader from "../UI/loader/FetchLoader/Loader";
 
 
-const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBranches, branches, curBranch, changeCurBranch}) => {
+const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBranches, branches, curBranch, changeCurBranch, addLastItem}) => {
 
     const { user, setUser } = useContext(UserContext);
     const [ itemsList, setItemsList ] = useState([]);
@@ -88,7 +88,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
         if(type === 'repos') {
             setReposName(key);
             const branch = await fetchReposContent(key); // key = reposName
-            console.log(branch);
+            console.log(branch); 
             changeCurBranch(branch);
         }
         else {
@@ -100,6 +100,8 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
             else if(type === 'blob') {
                 GitHubService.getBlob(user.username, reposName,
                     curBranch ? curBranch.name : branches[0].name, key);
+                const openedItem = itemsList.filter(e => e.path === key);
+                addLastItem(openedItem[0]);
             }
         }
     }
