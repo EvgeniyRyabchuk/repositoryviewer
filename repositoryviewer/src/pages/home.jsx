@@ -74,16 +74,20 @@ const Home = () => {
         })
 
 
-        console.log('new branches list');
-        console.log(newBranchList);
-        console.log(branch);
+        // console.log('new branches list');
+        // console.log(newBranchList);
+        // console.log(branch);
         // setBranchList(newBranchList);
         setCurBranch(branch);
     }
 
     const changeCurBranch = (b) => {
-        console.log(b)
+        console.log(b);
         setCurBranch(b);
+    }
+
+    const cbl = (e) => {
+        setBranchList(e);
     }
 
     return (
@@ -97,7 +101,7 @@ const Home = () => {
                     <ControlPanel showModal={showModal} curPath={curPath} changePath={changePath}
                                   branches={branchList} switchBranch={switchBranch} curBranch={curBranch} />
                     <ReposViewTable curPath={curPath} changePath={changePath} isRefresh={isRefresh}
-                                    setIsRefresh={setIsRefresh} changeBranches={setBranchList} curBranch={curBranch} changeCurBranch={setCurBranch} />
+                                    setIsRefresh={setIsRefresh} changeBranches={cbl} branches={branchList} curBranch={curBranch} changeCurBranch={setCurBranch} />
                     <ViewUserReposModal isOpen={isModalOpen} confirm={confirmModal} hidden={hideModal}/>
 
                 </div>

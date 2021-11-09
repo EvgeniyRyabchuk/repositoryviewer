@@ -11,6 +11,9 @@ export const useFetching = (callback) => {
         }
         catch (err) {
             setError(err);
+            console.log('-----------------------------------');
+            console.error(err);
+            console.log('-----------------------------------');
         }
         finally {
             setIsLoading(false);

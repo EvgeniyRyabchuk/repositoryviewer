@@ -21,7 +21,7 @@ const ReposItem = ({self, select}) => {
                 </div>
                 <div className="file-metadata">
                     <span className="type">     - </span>
-                    <span className="last-change">{self.created_at}</span>
+                    <span className="created-at">{self.created_at}</span>
                     <span className="size">{self.size}</span>
                 </div>
             </div>

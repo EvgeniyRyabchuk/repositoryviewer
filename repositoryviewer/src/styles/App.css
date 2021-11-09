@@ -139,6 +139,7 @@ aside
     height: 100vh;
     position: fixed;
     z-index: 2;
+    top: 70px;
 }
 
 
@@ -390,7 +391,7 @@ body::-webkit-scrollbar-thumb {
     height: 50px;
     margin-bottom: 30px;
     padding: 10px 30px;
-    padding-right: 50px;
+    padding-right: 70px;
     background-color: rgb(236, 236, 236);
     min-width: 550px;
 }
@@ -420,6 +421,13 @@ body::-webkit-scrollbar-thumb {
     margin-right: 30px;
 }
 
+.name {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .folder {
     /* border-top: 3px;
     border-bottom: 3px;  */
@@ -429,11 +437,20 @@ body::-webkit-scrollbar-thumb {
     justify-content: space-between;
     width: 400px;
     padding: 0 10px;
-
 }
+
 .file-metadata span {
     padding: 0 5px;
+    text-align: center;
 }
+.file-metadata .type, .file-metadata .size {
+    width: 100px;
+}
+.file-metadata .created-at {
+    width: 200px;
+}
+
+
 .file-list-container ul .li-header {
     display: flex;
     justify-content: space-between;
@@ -455,7 +472,6 @@ body::-webkit-scrollbar-thumb {
 
 #files {
     min-width: 550px;
-    overflow-x: scroll;
 }
 
 @media screen and (max-width: 1400px) {
@@ -474,7 +490,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 @media screen and (max-width: 992px) {
-
 
     .disk-manage
     {
@@ -551,25 +566,23 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
+.created-at { text-align: left; }
+
 @media screen and (max-width: 576px) {
-    .navbar-nav-list
-    {
+    .navbar-nav-list {
         padding: 5px;
     }
-    .navbar-nav-list .nav-link
-    {
+    .navbar-nav-list .nav-link {
         padding: 8px 5px;
     }
     .control-wrapper {
         padding: 0;
         top: 80px;
     }
-    .control-panel
-    {
+    .control-panel {
         padding: 20px 0px;
     }
-    .recently-item
-    {
+    .recently-item {
         max-width: none;
     }
     .file-list-wrapper {
@@ -581,13 +594,10 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-
-
 .h-center { text-align: center; margin-bottom: 30px; }
 .no-profiles { display: flex; align-items: center; flex-direction: column; margin-top:100px; }
 .no-profiles-icon { font-size: 20px; margin-bottom: 10px; }
-/*.h-no-profiles { text-align: center; margin-top: 100px; }*/
-/*.h-no-profiles + svg { text-align: center; }*/
+
 .profile-tab {
     padding: 30px;
 }
@@ -658,6 +668,7 @@ body::-webkit-scrollbar-thumb {
         margin: 0 auto;
     }
 }
+
 
 
 

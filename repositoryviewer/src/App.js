@@ -6,6 +6,7 @@ import AppRouter from "./components/AppRouter";
 import HiddenSideBar from "./components/shared/HiddenSideBar";
 import {useEffect, useState} from "react";
 import {UserContext, UserListContext} from "./context";
+import Footer from "./components/shared/footer/footer";
 
 
 function App() {
@@ -68,6 +69,8 @@ function App() {
                             </div>
                         </main>
                     </div>
+                    <Footer />
+
                 </Router>
             </UserContext.Provider>
         </UserListContext.Provider>

@@ -27,7 +27,7 @@ const HiddenSideBar = ({isOpen, openHiddenSideBar}) => {
                              width="50" height="50" />
                     </div>
                     <span className="email">
-                        {user ? user.email ? user.email : user.username : ''}
+                        {user ? user.email ? user.email : user.username : 'Guest'}
                     </span>
                 </div>
                 <div className="nav flex-column nav-pills mx-3" id="v-pills-tab" role="tablist"

@@ -9,7 +9,7 @@ import ItemList from "./ItemList";
 import Loader from "../UI/loader/FetchLoader/Loader";
 
 
-const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBranches, curBranch, changeCurBranch}) => {
+const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBranches, branches, curBranch, changeCurBranch}) => {
 
     const { user, setUser } = useContext(UserContext);
     const [ itemsList, setItemsList ] = useState([]);
@@ -64,14 +64,14 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
     // получение файлов корня репозитория (открытие репозитория)
     const [fetchReposContent, isReposContentLoading, reposContentError] = useFetching(async (reposName, branchName) => {
         let branches = await GitHubService.getBranches(user.username, reposName);
-        const selectedBranch = branchName ? branchName : branches[0].name;
-        const filesData = await GitHubService.getReposContent(user.username, reposName, selectedBranch);
+        changeBranches(branches);
+        const selectedBranch = branchName ? branchName : branches[0];
+        const filesData = await GitHubService.getReposContent(user.username, reposName, selectedBranch.name);
         pathDataModify(filesData);
         branchesListDataModify(branches);
         reposData.current = filesData;
         const items = openFolder(filesData, '');
         setItemsList(items);
-        console.log(branches);
         // changeCurBranch(selectedBranch);
         changeBranches(branches);
         return selectedBranch;
@@ -83,11 +83,12 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
         }
     },[user]);
 
-    const openDirOrFile = (key, type) => {
+    const openDirOrFile = async (key, type) => {
 
         if(type === 'repos') {
             setReposName(key);
-            const branch = fetchReposContent(key); // key = reposName
+            const branch = await fetchReposContent(key); // key = reposName
+            console.log(branch);
             changeCurBranch(branch);
         }
         else {
@@ -97,7 +98,8 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
                 setItemsList(items);
             }
             else if(type === 'blob') {
-               GitHubService.getBlob(user.username, reposName, curBranch.name, key);
+                GitHubService.getBlob(user.username, reposName,
+                    curBranch ? curBranch.name : branches[0].name, key);
             }
         }
     }
@@ -112,7 +114,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
             return;
         }
 
-        path.splice(path.length - 1, 1)
+        path.splice(path.length - 1, 1);
         const backPath = path.join('/');
         const items = openFolder(reposData.current, backPath);
         setItemsList(items);
@@ -132,7 +134,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
                             <span className="header-name">Name</span>
                         </div>
                         <div className="file-metadata">
-                            <span className="type">Type of file</span>
+                            <span className="type">Item type</span>
                             <span className="last-change">Date</span>
                             <span className="size">Size</span>
                         </div>

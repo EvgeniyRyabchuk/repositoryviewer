@@ -4,6 +4,7 @@ import cl from './ControlPanel.module.css';
 
 const ControlPanel = ({showModal, curPath, changePath, branches, switchBranch, curBranch}) => {
 
+    console.log(branches);
 
     return (
         <div className="control-wrapper">
@@ -24,7 +25,9 @@ const ControlPanel = ({showModal, curPath, changePath, branches, switchBranch, c
                         onChange={(event) => switchBranch(event.target.value)}>
                     <option disabled>Select branch</option>
                     {branches.map((e, index) =>
-                        <option  key={e.commit.sha} className={e.name === curBranch.name ? cl.selected : 'simple'} value={e.name}>{e.name}</option>
+                        <option key={e.commit.sha} className=
+                            {curBranch ? e.name === curBranch.name ? cl.selected : 'simple'
+                                : e.name === branches[0].name ? cl.selected : 'simple' } value={e.name}>{e.name}</option>
                     )}
                 </select>
                 <PathNavigator curPath={curPath} changePath={changePath} />
