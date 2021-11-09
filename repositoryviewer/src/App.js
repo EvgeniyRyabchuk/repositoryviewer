@@ -22,9 +22,9 @@ function App() {
     useEffect(() => {
         const recoveredList = JSON.parse(localStorage.getItem('userList'));
         if(recoveredList) {
-            setUserList(recoveredList); 
+            setUserList(recoveredList);
             if(recoveredList.length > 0)
-                setUser(recoveredList[0]); 
+                setUser(recoveredList[0]);
         }
     }, []);
     
@@ -44,8 +44,9 @@ function App() {
     }, [user]);
 
     useEffect(() => {
-        if(userList)
+        if(userList) {
             localStorage.setItem('userList', JSON.stringify(userList));
+        }
     }, [userList]);
 
     return (

@@ -2,11 +2,13 @@
 .profile-card {
     min-width: 300px;
     width: 25%;
+
 }
 .profile__card--active {
     border: 3px solid #0d6efd !important;
 }
 .profile-card-inner {
+    position: relative;
     padding: 10px;
     /* background-color: rgb(196, 196, 196);  */
     border: 1px solid white;
@@ -39,6 +41,42 @@
 .profile__img__wrapper img
 {
     border-radius: 50%;
+}
+
+.profile__name {
+    font-size: 15px;
+    text-align: end;
+}
+
+.close__profile {
+    position: absolute;
+    font-size: 25px;
+    color: grey;
+    top: -15px;
+    left: -12px;
+    border-radius: 100px;
+    background-color: white;
+    width: 25px;
+    height: 25px;
+}
+
+.close__profile svg {
+    vertical-align: top;
+    width: auto !important;
+    height: auto;
+}
+
+
+.close__profile:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.button
+{
+    border: 0;
+    outline: none;
+    background-color: transparent;
 }
 
 @media screen and (max-width: 1600px) {

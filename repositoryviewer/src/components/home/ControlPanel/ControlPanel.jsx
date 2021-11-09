@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCaretDown, faFolder} from "@fortawesome/free-solid-svg-icons";
+import React from 'react';
 import PathNavigator from "../PathNavigator/PathNavigator";
 import cl from './ControlPanel.module.css';
 
@@ -12,9 +10,9 @@ const ControlPanel = ({showModal, curPath, changePath, branches, switchBranch, c
             {/*{branches.map(e => e.name === curBranch.name ? e.name : '')}*/}
             <div className="control-panel">
 
-                <button type="button" onClick={showModal} className="btn btn-primary control-btn">View User Repos</button>
-                <button className="btn btn-primary control-btn">Log out</button>
-                <button className="btn btn-danger control-btn">Remove</button>
+                <button type="button" onClick={showModal} className="btn btn-primary control-btn">View User Repository</button>
+                {/*<button className="btn btn-primary control-btn">Log out</button>*/}
+                {/*<button className="btn btn-danger control-btn">Remove</button>*/}
 
                 <div className="cur-path">
                     <input type="text" disabled

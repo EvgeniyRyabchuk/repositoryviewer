@@ -378,11 +378,12 @@ body::-webkit-scrollbar-thumb {
 .file-list-wrapper
 {
     padding: 40px;
+    overflow-x: scroll;
 }
 
 .header-name { margin-left: 50px; }
 .list-header-wrapper {
-    top: 148px;
+    /*top: 148px;*/
     position: sticky;
     box-shadow: 0px 5px 10px 7px rgba(34, 60, 80, 0.07);
     height: 50px;
@@ -404,6 +405,7 @@ body::-webkit-scrollbar-thumb {
 }
 .file-list-container
 {
+    min-width: 550px;
     min-height: 600px;
     /* height: 1900px; */
     box-shadow: 0px 5px 10px 2px rgb(34 60 80 / 20%);
@@ -571,7 +573,10 @@ body
 
 
 .h-center { text-align: center; margin-bottom: 30px; }
-
+.no-profiles { display: flex; align-items: center; flex-direction: column; margin-top:100px; }
+.no-profiles-icon { font-size: 20px; margin-bottom: 10px; }
+/*.h-no-profiles { text-align: center; margin-top: 100px; }*/
+/*.h-no-profiles + svg { text-align: center; }*/
 .profile-tab {
     padding: 30px;
 }

@@ -26,7 +26,6 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
     }
 
     useEffect(() => {
-        console.log(reposData.current);
         if(reposData.current)
         {
             const items = openFolder(reposData.current, curPath);
@@ -51,15 +50,10 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
     }
 
     useEffect(() => {
-        console.log('first start here');
         if(curBranch) {
-            console.log(curBranch.name);
             fetchReposContent(reposName, curBranch.name);
         }
     }, [curBranch]);
-
-
-
 
     // получение репозиторий пользователя
     const [fetchRepos, isReposLoading, reposError] = useFetching(async (username) => {
@@ -103,7 +97,6 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
                 setItemsList(items);
             }
             else if(type === 'blob') {
-                console.log(key);
                GitHubService.getBlob(user.username, reposName, curBranch.name, key);
             }
         }
