@@ -98,10 +98,13 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
                 setItemsList(items);
             }
             else if(type === 'blob') {
-                GitHubService.getBlob(user.username, reposName,
-                    curBranch ? curBranch.name : branches[0].name, key);
-                const openedItem = itemsList.filter(e => e.path === key);
-                addLastItem(openedItem[0]);
+                const branchName = curBranch ? curBranch.name : branches[0].name;
+                GitHubService.getBlob(user.username, reposName, branchName, key);
+                const openedItem = itemsList.filter(e => e.path === key)[0];
+                openedItem.branchName = branchName;
+                openedItem.reposName = reposName;
+                openedItem.username = user.username; 
+                addLastItem(openedItem);
             }
         }
     }
@@ -136,8 +139,8 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
                             <span className="header-name">Name</span>
                         </div>
                         <div className="file-metadata">
-                            <span className="type">Item type</span>
-                            <span className="last-change">Date</span>
+                            <span className="type">Type</span>
+                            <span className="created-at">Date</span>
                             <span className="size">Size</span>
                         </div>
                     </div>

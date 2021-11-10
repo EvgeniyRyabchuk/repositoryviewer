@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useLocation} from "react-router-dom";
 import LastItems from "../components/home/LastItems/LastItems";
 import ControlPanel from "../components/home/ControlPanel/ControlPanel";
@@ -10,7 +10,7 @@ import GitHubService from "../API/GitHubService";
 const Home = () => {
     let location = useLocation();
     const {user, setUser} = useContext(UserContext);
-    
+
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     const [curPath, setCurPath] = useState(''); 
     const [curBranch, setCurBranch] = useState();
@@ -31,7 +31,7 @@ const Home = () => {
             try {
                 const responce = await GitHubService.getUser(username);
                 console.log(responce);
-                const user = { 
+                const user = {
                     username: responce.login,
                     email: responce.email,
                     id: responce.id,
@@ -74,17 +74,34 @@ const Home = () => {
             setLastItems([item, ...lastItems]);
         }
         else {
-            setLastItems([...lastItems, item]);
+            setLastItems([item, ...lastItems]);
         }
-
     }
+
+    const openLastItem = (item) => {
+        GitHubService.getBlob(item.username, item.reposName, item.branchName, item.path);
+    }
+
+    useEffect(() => {
+        const recovered =  JSON.parse(localStorage.getItem('lastItems'));
+        if(recovered && recovered.length > 0)
+            setLastItems(recovered);
+
+        console.log(recovered);
+    }, [])
+
+    useEffect(() => {
+      if(lastItems)
+          localStorage.setItem('lastItems', JSON.stringify(lastItems));
+    }, [lastItems])
+
     return (
         <div className={
             location.pathname === '/home' ?
                 "tab-pane fade show active" :"tab-pane fade" } id="v-pills-home" role="tabpanel"
              aria-labelledby="v-pills-home-tab">
             <article className="content">
-                <LastItems lastItems={lastItems} />
+                <LastItems lastItems={lastItems} openLastItem={openLastItem}/>
                 <div className="content-inner">
                     <ControlPanel showModal={showModal}
                                   curPath={curPath}

@@ -215,7 +215,7 @@ aside
 .navbar-icon-wrapper {
     display: flex;
     align-items: center;
-    width: 400px;
+    min-width: 250px;
 }
 
 main
@@ -246,8 +246,16 @@ main
 
 .search
 {
-    /* flex-grow: 1;  */
-    width: 600px;
+    flex-basis: 600px;
+}
+
+.search-header-item {
+    display: none;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: black !important;
 }
 
 .navbar-content
@@ -281,6 +289,10 @@ main
     min-height: 160px;
     padding: 10px;
     overflow-x: hidden;
+    cursor: default;
+}
+.recently-item:focus {
+    background-color: lightgrey;
 }
 .recently-item-inner {
     display: flex;
@@ -292,6 +304,10 @@ main
 {
     margin-top: 15px;
     height: 20px;
+}
+
+.recently-item--selected {
+    background-color: lightgrey;
 }
 
 .tab-content
@@ -391,7 +407,7 @@ body::-webkit-scrollbar-thumb {
     height: 50px;
     margin-bottom: 30px;
     padding: 10px 30px;
-    padding-right: 70px;
+    padding-right: 50px;
     background-color: rgb(236, 236, 236);
     min-width: 550px;
 }
@@ -400,6 +416,9 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     justify-content: space-between;
 
+}
+.list-header-container span {
+    white-space: nowrap;
 }
 .list-header-container i {
     font-size: 23px;
@@ -538,6 +557,9 @@ body::-webkit-scrollbar-thumb {
     {
         display: none;
     }
+    .search-header-item {
+        display: block;
+    }
     .file-list-wrapper
     {
         padding: 10px;
@@ -564,6 +586,8 @@ body::-webkit-scrollbar-thumb {
     {
         padding: 0
     }
+
+
 }
 
 .created-at { text-align: left; }
@@ -611,6 +635,7 @@ body::-webkit-scrollbar-thumb {
     flex-grow: 1; */
     min-width: 300px;
     width: 25%;
+
 }
 .profile__card--active {
     border: 3px solid #0d6efd !important;
@@ -624,6 +649,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 14px;
     margin: 10px;
     box-shadow: 0px 0px 10px 2px rgba(34, 60, 80, 0.2);
+    background-color: white;
 }
 .profile-card  .profile__img__wrapper {
     margin-left: 10px;
@@ -669,8 +695,13 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-
-
+.users-block {
+    position: absolute;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 3px solid lightgrey;
+}
 
 
 

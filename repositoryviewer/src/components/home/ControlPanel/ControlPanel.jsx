@@ -10,7 +10,7 @@ const ControlPanel = ({showModal, curPath, changePath, branches, switchBranch, c
             {/*{branches.map(e => e.name === curBranch.name ? e.name : '')}*/}
             <div className="control-panel">
 
-                <button type="button" onClick={showModal} className="btn btn-primary control-btn">View User Repository</button>
+                <button type="button" onClick={showModal} className="btn btn-primary control-btn">View User Repositories</button>
                 {/*<button className="btn btn-primary control-btn">Log out</button>*/}
                 {/*<button className="btn btn-danger control-btn">Remove</button>*/}
 

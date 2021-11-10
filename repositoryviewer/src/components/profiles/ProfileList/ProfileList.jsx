@@ -1,7 +1,7 @@
 import React, {useContext, useEffect} from 'react';
 import './ProfileList.css';
-import ProfileCard from "../ProfileCard/ProfileCard";
 import {UserContext, UserListContext} from "../../../context";
+import UserCard from "../../shared/UserCard/UserCard";
 
 const ProfileList = () => {
     const {userList, setUserList} = useContext(UserListContext);
@@ -17,7 +17,7 @@ const ProfileList = () => {
     return (
         <div className="profile-list">
             {userList.map(e =>
-                <ProfileCard key={e.id} props={e} foreget={foregetProfile} />
+                <UserCard key={e.id} props={e} foreget={foregetProfile} isVisited={true}/>
             )}
 
         </div>

@@ -1,13 +1,17 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faFileImage} from "@fortawesome/free-solid-svg-icons";
+import GitHubService from "../../../API/GitHubService";
 
-const LastItem = ({item, types, defType}) => {
+const LastItem = ({item, types, defType, open}) => {
 
     const getFileName = () => {
         const arr = item.path.split('/');
         return arr[arr.length - 1];
     }
+
+    const [name, setName] = useState(getFileName());
+
 
     const getFileIcon = () => {
         for (let t of types) {
@@ -25,12 +29,16 @@ const LastItem = ({item, types, defType}) => {
         )
     }
 
+
+
     return (
-        <div className="recently-item">
+        <div tabIndex={item.sha} className="recently-item"
+             onDoubleClick={() => open(item)}
+            >
             <div className="recently-item-inner">
                 {getFileIcon()}
                 <div className="recently-file__header">
-                    <h5>{getFileName()}</h5>
+                    <h5>{name}</h5>
                 </div>
             </div>
         </div>

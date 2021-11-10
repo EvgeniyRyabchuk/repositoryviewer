@@ -1,10 +1,11 @@
 import {FetchService} from "./FetchService";
 
-export default class GitHubService extends FetchService {
+export default class GitHubService {
 
     static async getRepos(username) {
         const url =`https://api.github.com/users/${username}/repos`;
         const res = FetchService.fetchJsonData(url);
+        console.log(res);
         return res;
     }
 
@@ -32,5 +33,9 @@ export default class GitHubService extends FetchService {
         return res;
     }
 
+    static async getUsers(query, page, per_page) {
+        const url = `https://api.github.com/search/users?q=${query}&type=users&page=${page}&per_page=${per_page}`;
+        return await FetchService.fetchJsonData(url);
+    }
 
 }

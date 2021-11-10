@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faFile, faFileArchive, faFileImage} from '@fortawesome/free-solid-svg-icons'
 import {faFileAlt, faFileAudio, faFileVideo} from '@fortawesome/free-regular-svg-icons'
 import LastItem from "./LastItem";
 
-const LastItems = ({lastItems}) => {
+const LastItems = ({lastItems, openLastItem}) => {
     const types = [
         {extension: '.png|.jpeg|.jpg', type: 'image', icon: faFileImage},
         {extension: '.txt', type: 'text', icon: faFileAlt},
@@ -13,10 +13,14 @@ const LastItems = ({lastItems}) => {
         {extension: '.zip|.rar', type: 'audio', icon: faFileArchive},
     ];
     const defType = {extension: '*', type: 'any', icon: faFile};
+
+
+
     return (
         <div className="recently-items-wrapper">
             {lastItems.map(e =>
-                <LastItem key={e.sha} item={e} types={types} defType={defType}/>
+                <LastItem key={e.sha} item={e} types={types} defType={defType}
+                          open={openLastItem}/>
             )}
             {lastItems.length === 0 &&
                 <h1 className="h-center">You not have recently items</h1>
