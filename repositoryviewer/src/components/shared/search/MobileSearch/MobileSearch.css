@@ -1,15 +1,14 @@
 
 
-
-
 .sm-search-wrapper {
+    color: darkslateblue;
     z-index: 99;
     position: fixed;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: rgba(219, 219, 219, 0.5);
+    background-color: rgba(219, 219, 219, 0.8) !important;
     display: none;
     justify-content: center;
     padding: 0 20px;
@@ -28,11 +27,33 @@
 .sm-search {
     margin-top: 100px;
     width: 500px;
+    /*height: 50px;*/
+    /*max-height: 100%;*/
+    display: flex;
+    justify-content: center;
+}
+
+.sm-search-inner {
+    width: 380px;
 }
 
 @media screen and (max-width: 720px) {
 
     .sm-search-wrapper {
         display: flex;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .sm-search-wrapper {
+        padding: 0;
+    }
+    .sm-search-wrapper .profile-card {
+        width: 100%;
+        min-width: 220px;
+    }
+    .sm-search-inner {
+        width: 100%;
     }
 }

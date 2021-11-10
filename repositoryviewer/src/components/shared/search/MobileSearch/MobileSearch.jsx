@@ -38,21 +38,25 @@ const MobileSearch = ({closed}) => {
             closed();
         }}>
             <div className="sm-search" onClick={(e) => { e.stopPropagation(); }}>
-                <form className="d-flex">
-                    <input ref={searchInput} className="form-control me-2" type="search" placeholder="Search"
-                           aria-label="Search" onInput={searchOnInput} onFocus={() => setIsInput(true)} />
-                </form>
-                { isInput &&
-                <div className="users-block">
-                    <div className="user-search-card">
-                        {foundUsersList.map(e =>
-                            <UserCard key={e.id} props={e} isVisited={false} userSelected={() => {
-                                closed();
-                            }}/>
-                        )}
+                <div className="sm-search-inner">
+                    <form className="d-flex">
+                        <input ref={searchInput} className="form-control me-2" type="search" placeholder="Search"
+                               aria-label="Search" onInput={searchOnInput} onFocus={() => setIsInput(true)} />
+                    </form>
+                    {isInput &&
+                    <div className="users-block">
+                        <div className="user-search-card">
+                            {foundUsersList.map(e =>
+                                <UserCard key={e.id} props={e} isVisited={false} userSelected={() => {
+                                    closed();
+                                }}/>
+                            )}
+                        </div>
                     </div>
+                    }
                 </div>
-                }
+
+
             </div>
         </div>
     );
