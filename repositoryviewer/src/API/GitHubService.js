@@ -4,14 +4,14 @@ export default class GitHubService {
 
     static async getRepos(username) {
         const url =`https://api.github.com/users/${username}/repos`;
-        const res = FetchService.fetchJsonData(url);
+        const res = await FetchService.fetchJsonData(url);
         console.log(res);
         return res;
     }
 
     static async getReposContent(username, reposName, branch = 'master') {
         const url = `https://api.github.com/repos/${username}/${reposName}/git/trees/${branch}?recursive=1`;
-        const res = FetchService.fetchJsonData(url);
+        const res = await FetchService.fetchJsonData(url);
         return res;
     }
 

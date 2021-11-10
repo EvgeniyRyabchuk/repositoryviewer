@@ -37,7 +37,7 @@ const UserCard = ({props, foreget, isVisited, userSelected}) => {
                     <div className="d-flex flex-column justify-content-end">
                         <span className="profile__name">{props.login ? props.login : props.username}</span>
                         <div className="d-flex justify-content-end">
-                            <button onClick={changeUser} className="view-rep-btn">View repositories</button>
+                            <div onClick={changeUser} className="view-rep-btn">View repositories</div>
                         </div>
                     </div>
                 </div>

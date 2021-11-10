@@ -127,7 +127,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
 
     return (
         <div className="file-list-wrapper">
-            <h1 style={{textAlign: 'center', marginBottom: '50px'}}>{reposName}</h1>
+            <h1 style={{textAlign: 'center', marginBottom: '50px', marginTop: '10px'}}>{reposName}</h1>
             <div className="file-list-container">
                 <div className="list-header-wrapper">
                     <div className="list-header-container">
