@@ -3,6 +3,7 @@ import UserCard from "../../UserCard/UserCard";
 import GitHubService from "../../../../API/GitHubService";
 import useInputLag from "../../../../hooks/useInputLag";
 import './MobileSearch.css';
+import Loader from "../../../UI/loader/FetchLoader/Loader";
 
 const MobileSearch = ({closed}) => {
     const searchInput = useRef();
@@ -21,13 +22,13 @@ const MobileSearch = ({closed}) => {
                 setFoundUsersList(data.items);
             }
         }
-
     });
 
     const searchOnInput = () => {
         const query = searchInput.current.value;
-        query === '' && setIsInput(false);
+        query === '' ? setIsInput(false) : setIsInput(true); 
         startTimer(query);
+        setFoundUsersList([]);
     }
 
     return (
@@ -43,10 +44,11 @@ const MobileSearch = ({closed}) => {
                                aria-label="Search" onInput={searchOnInput}
                                onFocus={(event) => setIsInput(true)} />
                     </form>
-                    {isInput &&
+                    {isInput &&  isInput && searchInput.current.value !== '' ?
                     <div className="users-block">
                         <div className="user-search-card">
                             { searchInput.current.value === '' && <h6 style={{textAlign: 'center', margin: '0'}}>Input user name</h6> }
+                            {isTimeout && <Loader /> }
                             {foundUsersList.map(e =>
                                 <UserCard key={e.id} props={e} isVisited={false} userSelected={() => {
                                     closed();
@@ -54,7 +56,7 @@ const MobileSearch = ({closed}) => {
                             )}
                         </div>
                     </div>
-                    }
+                    : ''}
                 </div>
 
 

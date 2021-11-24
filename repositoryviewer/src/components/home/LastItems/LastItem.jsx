@@ -32,7 +32,7 @@ const LastItem = ({item, types, defType, open}) => {
 
 
     return (
-        <div tabIndex={item.sha} className="recently-item"
+        <div tabIndex={1} className="recently-item"
              onDoubleClick={() => open(item)}
             >
             <div className="recently-item-inner">

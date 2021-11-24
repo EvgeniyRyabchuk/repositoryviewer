@@ -10,6 +10,7 @@ const UserCard = ({props, foreget, isVisited, userSelected}) => {
     const history = useHistory();
 
     const changeUser = () => {
+        console.log('click on user');
         const user = {
             username: props.login ? props.login : props.username,
             email: props.email,
@@ -23,14 +24,14 @@ const UserCard = ({props, foreget, isVisited, userSelected}) => {
 
 
     return (
-        <div className="profile-card">
+        <div className="profile-card" >
             <div className={user && props.id === user.id ? 'profile-card-inner profile__card--active' : 'profile-card-inner'}>
                 {isVisited &&
                     <div className="close__profile" onClick={() => foreget(props.id)}>
                         <FontAwesomeIcon icon={faTimesCircle} />
                     </div>
                 }
-                <div className="profile__img__wrapper">
+                <div className="profile__img__wrapper" >
                     <img src={props.avatar_url} width="50" height="50" />
                 </div>
                 <div className="w-100 d-flex flex-row justify-content-end align-items-center">

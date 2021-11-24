@@ -4,7 +4,9 @@ import useInputLag from "../../hooks/useInputLag";
 import UserCard from "./UserCard/UserCard";
 import {UserContext} from "../../context";
 import MobileSearch from "./search/MobileSearch/MobileSearch";
-
+import Loader from "../UI/loader/FetchLoader/Loader";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faSearch} from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({openHiddenSideBar}) => {
     const {user, setUser} = useContext(UserContext);
@@ -15,11 +17,11 @@ const Header = ({openHiddenSideBar}) => {
 
     const [foundUsersList, setFoundUsersList] = useState([]);
 
-    const search = async () => {
-        const query = searchInput.current.value;
-        const data = await GitHubService.getUsers(query);
-        console.log(data);
-    }
+    // const search = async () => {
+    //     const query = searchInput.current.value;
+    //     const data = await GitHubService.getUsers(query);
+    //     console.log(data);
+    // }
 
     const [startTimer, isTimeout] = useInputLag( async (query) => {
         if(query != '')
@@ -33,14 +35,21 @@ const Header = ({openHiddenSideBar}) => {
 
     });
 
-    const searchOnInput = () => {
+    const searchOnInput = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
         const query = searchInput.current.value;
-        query == '' ? setIsInput(false) : setIsInput(true);
+        // query == '' ? setIsInput(false) : setIsInput(true);
         console.log(query);
         startTimer(query);
-        // setFoundUsersList([]);
+        setFoundUsersList([]);
     }
 
+    document.addEventListener('click', () => {
+        setIsInput(false);
+    })
+
+    console.log('is input', isInput);
     return (
         <header>
             {
@@ -54,60 +63,40 @@ const Header = ({openHiddenSideBar}) => {
                             openHiddenSideBar(true)}>
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <a className="navbar-brand" href="#">Navbar</a>
-
                     </div>
-                    {/*
-                    onFocus={(event) => {
-                                // if(event.target.localName != 'input')
-                                //     return;
-                                console.log(event.target.localName);
-                                setIsInput(true);
-
-                            }}
-                             onBlur={(event) => {
-                                 console.log(event.target.localName);
-                                 setIsInput(false)
-                             }}*/}
                     <div className="" id="navbarTogglerDemo02" style={{width: '100%'}}>
                         <div className="navbar-content">
-                            <div tabIndex={0} className="search"  >
-                                <form className="d-flex" tabIndex={1}
-                    onFocus={(event) => {
-                                // if(event.target.localName != 'input')
-                                //     return;
-                                console.log(event.target.localName);
+                            <div className="search" onClick={   (e) => {
+                                e.stopPropagation();
                                 setIsInput(true);
-
                             }}
-                             onBlur={(event) => {
-                                 console.log(event.target.localName);
-                                 setIsInput(true)
-                             }}>
-                                    <input ref={searchInput} className="form-control me-2" type="search" placeholder="Search"
-                                           aria-label="Search" onInput={searchOnInput} onFocus={() => setIsInput(true)} />
-                                        <button className="btn btn-outline-success" type="button" onClick={search}>Search</button>
-                                        { isInput &&
-                                            // <div className="search-wrapper"></div>
-                                            <div className="users-block">
+
+                            >
+                                <form className="d-flex" >
+                                    <input ref={searchInput} className="form-control me-2" type="search" placeholder="Search for users..."
+                                           aria-label="Search" onInput={searchOnInput} />
+                                        <button className="btn btn-outline-success" type="button">Search</button>
+                                        { searchInput.current && searchInput.current.value !== '' && isInput ?
+                                            <div className="users-block" style={{width: '310px'}} onClick={() => { console.log('lskdh')}}>
                                                 <div className="user-search-card">
+                                                    {isTimeout && <Loader /> }
                                                     {foundUsersList.map(e =>
-                                                        <UserCard key={e.id} props={e} isVisited={false}/>
+                                                        <div>
+                                                            <UserCard key={e.id} props={e} isVisited={false} />
+                                                        </div>
+
                                                     )}
                                                 </div>
-                                            </div>
+                                            </div> : ''
                                         }
                                 </form>
-
-
                             </div>
                             <div className="side-btn">
                                 <ul className="navbar-nav-list">
-                                    {/*<li className="nav-item">*/}
-                                    {/*    <a className="nav-link active" aria-current="page" href="#">Home</a>*/}
-                                    {/*</li>*/}
                                     <li className="nav-item search-header-item">
-                                        <a className="nav-link" aria-current="page" onClick={() => { setSearchModalOpen(true) }}>Search</a>
+                                        <a className="nav-link" aria-current="page" onClick={() => { setSearchModalOpen(true) }}>
+                                            <FontAwesomeIcon icon={faSearch} style={{fontSize: '20px'}}/>
+                                        </a>
                                     </li>
                                     <li className="nav-item">
                                         <a className="nav-link disabled">{user && user.username}</a>

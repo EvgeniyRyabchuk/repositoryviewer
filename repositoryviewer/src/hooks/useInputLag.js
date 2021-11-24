@@ -6,13 +6,14 @@ const useInputLag = (callback) => {
     const [isTimeout, setIsTimeout] = useState(false);
 
     const startTimer = (...args) => {
+        setIsTimeout(true);
         if(timer.current) {
             clearTimeout(timer.current)
         }
 
         timer.current = setTimeout(async () => {
             await callback(...args);
-            setIsTimeout(true);
+            setIsTimeout(false);
         }, 1000);
     }
 

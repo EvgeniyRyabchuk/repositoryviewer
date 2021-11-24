@@ -51,7 +51,8 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
 
     useEffect(() => {
         if(curBranch) {
-            fetchReposContent(reposName, curBranch.name);
+            console.log(curBranch.name, 'current branch');
+            fetchReposContent(reposName, curBranch);
         }
     }, [curBranch]);
 
@@ -62,10 +63,10 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
     });
 
     // получение файлов корня репозитория (открытие репозитория)
-    const [fetchReposContent, isReposContentLoading, reposContentError] = useFetching(async (reposName, branchName) => {
+    const [fetchReposContent, isReposContentLoading, reposContentError] = useFetching(async (reposName, branch) => {
         let branches = await GitHubService.getBranches(user.username, reposName);
         changeBranches(branches);
-        const selectedBranch = branchName ? branchName : branches[0];
+        const selectedBranch = branch ? branch : branches[0];
         const filesData = await GitHubService.getReposContent(user.username, reposName, selectedBranch.name);
         pathDataModify(filesData);
         branchesListDataModify(branches);
