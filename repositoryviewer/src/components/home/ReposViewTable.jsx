@@ -32,6 +32,7 @@ const ReposViewTable = ({curPath, changePath, isRefresh, setIsRefresh, changeBra
             setItemsList(items);
             setIsRefresh(false);
         }
+
     }, [isRefresh])
 
     const pathDataModify = (data) => {

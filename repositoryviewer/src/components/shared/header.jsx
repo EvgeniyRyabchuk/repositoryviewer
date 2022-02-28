@@ -7,6 +7,7 @@ import MobileSearch from "./search/MobileSearch/MobileSearch";
 import Loader from "../UI/loader/FetchLoader/Loader";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from 'react';
 
 const Header = ({openHiddenSideBar}) => {
     const {user, setUser} = useContext(UserContext);
@@ -39,16 +40,31 @@ const Header = ({openHiddenSideBar}) => {
         e.stopPropagation();
         e.preventDefault();
         const query = searchInput.current.value;
-        // query == '' ? setIsInput(false) : setIsInput(true);
+        query == '' ? setIsInput(false) : setIsInput(true);
+        
         console.log(query);
         startTimer(query);
         setFoundUsersList([]);
     }
 
-    document.addEventListener('click', () => {
-        setIsInput(false);
-    })
+    useEffect(() => {
 
+        const onMouseUpEvent = () => {
+            setIsInput(false); 
+            console.log("aaa"); 
+        }; 
+
+        document.addEventListener('mouseup', onMouseUpEvent); 
+
+        return () => {
+            // localStorage.setItem('1', "123"); 
+            document.removeEventListener("mouseup", onMouseUpEvent); 
+        }
+    }, []); 
+
+    
+ 
+    
     console.log('is input', isInput);
     return (
         <header>
@@ -57,27 +73,34 @@ const Header = ({openHiddenSideBar}) => {
                 <MobileSearch closed={() => setSearchModalOpen(false)}/>
             }
             <nav className="navbar navbar-expand-lg navbar-light py-0">
+                
                 <div style={{display: 'flex', 'width': '100%'}}>
                     <div className="navbar-icon-wrapper">
-                        <button className="navbar-toggler" id="burger-btn" type="button" onClick={() =>
+                        <button className="navbar-toggler" id="burger-btn" type="button" onClick={() => 
                             openHiddenSideBar(true)}>
                             <span className="navbar-toggler-icon"></span>
                         </button>
                     </div>
                     <div className="" id="navbarTogglerDemo02" style={{width: '100%'}}>
                         <div className="navbar-content">
-                            <div className="search" onClick={   (e) => {
+                            <div className="search" onMouseDown ={(e) => { 
                                 e.stopPropagation();
                                 setIsInput(true);
-                            }}
-
+                            } 
+                        }
+                        onMouseUp= {(e) => {
+                            e.stopPropagation();
+                            
+                            // setIsInput(true);
+                            }
+                        }
                             >
                                 <form className="d-flex" >
                                     <input ref={searchInput} className="form-control me-2" type="search" placeholder="Search for users..."
                                            aria-label="Search" onInput={searchOnInput} />
                                         <button className="btn btn-outline-success" type="button">Search</button>
                                         { searchInput.current && searchInput.current.value !== '' && isInput ?
-                                            <div className="users-block" style={{width: '310px'}} onClick={() => { console.log('lskdh')}}>
+                                            <div className="users-block" style={{width: '310px'}} onClick={() => { console.log('lskdh')}}> 
                                                 <div className="user-search-card">
                                                     {isTimeout && <Loader /> }
                                                     {foundUsersList.map(e =>

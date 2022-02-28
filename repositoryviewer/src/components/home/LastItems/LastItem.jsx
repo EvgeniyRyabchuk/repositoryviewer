@@ -7,15 +7,15 @@ const LastItem = ({item, types, defType, open}) => {
 
     const getFileName = () => {
         const arr = item.path.split('/');
-        return arr[arr.length - 1];
+        return arr[arr.length - 1]; 
     }
 
     const [name, setName] = useState(getFileName());
 
 
     const getFileIcon = () => {
-        for (let t of types) {
-            const extensions = t.extension.split("|");
+        for (let t of types) { 
+            const extensions = t.extension.split("|"); 
             for (let ext of extensions) {
                 if(item.path.includes(ext)) {
                     return (

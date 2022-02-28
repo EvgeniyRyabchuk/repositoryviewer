@@ -42,7 +42,7 @@ const MobileSearch = ({closed}) => {
                     <form className="d-flex mx-2">
                         <input ref={searchInput} className="form-control" type="search" placeholder="Search"
                                aria-label="Search" onInput={searchOnInput}
-                               onFocus={(event) => setIsInput(true)} />
+                               onFocus={(event) => setIsInput(true)} /> 
                     </form>
                     {isInput &&  isInput && searchInput.current.value !== '' ?
                     <div className="users-block">
