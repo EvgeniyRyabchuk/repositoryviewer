@@ -14,8 +14,8 @@ const AppRouter = () => {
                     exact={e.exact}>
                 </Route>
             )}
-            <Redirect exact from="/" to="/home"/>
-            <Redirect exact to="/pagenotfound"/> 
+            {/*<Redirect exact from="/" to="/home"/>*/}
+            {/*<Redirect exact to="/pagenotfound"/> */}
         </Switch>
     );
 };
