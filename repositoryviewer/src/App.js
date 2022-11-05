@@ -1,7 +1,7 @@
 import './styles/App.css';
 import Header from "./components/shared/header";
 import Sidebar from "./components/shared/sidebar";
-import {HashRouter as Router} from "react-router-dom";
+import {BrowserRouter, Router} from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import HiddenSideBar from "./components/shared/HiddenSideBar";
 import {useEffect, useState} from "react";
@@ -53,7 +53,7 @@ function App() {
     <div className="App">
         <UserListContext.Provider value={{userList, setUserList}}>
             <UserContext.Provider value={{user, setUser}}>
-                <Router>
+                <BrowserRouter>
                     <Header openHiddenSideBar={openSideBar}/>
                     <HiddenSideBar isOpen={isHiddenSideBarOpen} openHiddenSideBar={openSideBar}/>
 
@@ -68,7 +68,7 @@ function App() {
                             </div>
                         </main>
                     </div>
-                </Router>
+                </BrowserRouter>
             </UserContext.Provider>
         </UserListContext.Provider>
     </div>

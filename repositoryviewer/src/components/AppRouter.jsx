@@ -1,5 +1,5 @@
 import React from 'react';
-import {Redirect, Route, Switch} from "react-router-dom";
+import {Redirect, Route, Router, Switch} from "react-router-dom";
 import { publicRoutes } from '../router/route';
 
 const AppRouter = () => {

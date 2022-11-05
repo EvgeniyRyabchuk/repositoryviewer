@@ -8,3 +8,4 @@ export const publicRoutes = [
     {path: '/profile', component: Profiles, exact: true },
     {path: '/pagenotfound', component: error_404, exact: true },
 ]
+
